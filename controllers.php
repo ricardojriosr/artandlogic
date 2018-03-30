@@ -9,37 +9,36 @@ class AdecodingFunctions
     public $hexValue;
     public static $extendedRange = 8192;
 
-    /**
-    * Construct and initialize the AdecodingFunctions object.
-    */
-   public function __construct()
-   {
 
-   }
+    public function set($attribute, $content){
+			   $this->$attribute = $content;
+		}
+
+    public function get($attribute) {
+        return $this->$attribute;
+    }
+
 
    /**
    * [nr02] Member functions are named using CamelCase, with a leading upper
    *  case letter.
    * @param integer integerValue Number of the value to Decode.
    **/
-   public function EncodeInteger($integerValue)
+   public function EncodeInteger()
    {
-        if ($integerValue > 8192 || $integerValue < -8192)
+        if ($this->integerValue > 8192 || $this->integerValue < -8192)
         {
             return 'Invalid Value';
         }
         else
         {
-            $this->integerValue = $integerValue + self::$extendedRange;
-            $intermediateHex = dechex($this->integerValue);
-            echo 'Unencoded (decimal) = ' . $integerValue;
-            echo '<br>';
-            echo 'Intermediate = ' . $this->integerValue;
-            echo '<br>';
-            echo 'Intermediate (Hex) = ' . $intermediateHex;
-            echo '<br>';
-            echo 'Encoded (Hex) = ' . 'HELP HERE!!!!';
-            echo '<br>';
+            $integerHex = $this->integerValue + self::$extendedRange;
+            $integerHex0 = dechex($this->integerValue);
+            $integerHex21 = $integerHex;
+            $integerHex2 = ($integerHex21 &= 0x7F);
+            $integerHex3 = $integerHex2 + (($integerHex &= 0xFF80)<<1);
+            $encodedword = dechex((string)$integerHex3);
+            return $encodedword;
         }
    }
 
@@ -49,30 +48,16 @@ class AdecodingFunctions
    *  case letter.
    * @param string stringValue Number of the value to Encode.
    **/
-   public function DecodeHex($hexValue)
+   public function DecodeHex()
    {
-       $this->hexValue = $hexValue;
-       return dechex($this->hexValue);
-   }
-
-   /**
-   * Destruct and finish the AdecodingFunctions object.
-   */
-   public function __destruct()
-   {
-
+      $hexadecimal = intval($this->hexValue, 16);
+      $hexadecimal2 = $hexadecimal;
+      $hexadecimal3 = $hexadecimal;
+      $hexadecimal1 =  (($hexadecimal2 &= 0x7F00) >> 1) + ($hexadecimal3 &= 0x7F);
+      $hexadecimal1 = $hexadecimal1 -8192;
+      return $hexadecimal1;
    }
 
 }
 
-
-$art1 = new AdecodingFunctions();
-$art1->EncodeInteger(0);
-echo '<br>';
-$art1->EncodeInteger(-8192);
-echo '<br>';
-$art1->EncodeInteger(8191);
-echo '<br>';
-$art1->EncodeInteger(2048);
-echo '<br>';
-$art1->EncodeInteger(-4096);
+?>
