@@ -36,7 +36,7 @@ require_once('controllers.php');
                 <div class="alert alert-info" role="alert">
                       <?php
                           $encodeNumber = new AdecodingFunctions();
-                          $encodeNumber->set('integerValue',$_POST['encodingNumber']);
+                          $encodeNumber->Set('integerValue',$_POST['encodingNumber']);
                           echo 'Encoded Output = ' . $encodeNumber->EncodeInteger();
                       ?>
                 </div>
@@ -60,7 +60,7 @@ require_once('controllers.php');
                 <div class="alert alert-info" role="alert">
                       <?php
                           $decodeNumber = new AdecodingFunctions();
-                          $decodeNumber->set('hexValue',$_POST['decodingNumber']);
+                          $decodeNumber->Set('hexValue',$_POST['decodingNumber']);
                           echo 'Decoded Output = ' . $decodeNumber->DecodeHex();
                       ?>
                 </div>
@@ -75,23 +75,23 @@ require_once('controllers.php');
             <?php
             $encodeNumber = new AdecodingFunctions();
 
-            $encodeNumber->set('integerValue', 0);
+            $encodeNumber->Set('integerValue', 0);
             $example1 = '0';
             $exampleResult1 = $encodeNumber->EncodeInteger();
 
-            $encodeNumber->set('integerValue', -8192);
+            $encodeNumber->Set('integerValue', -8192);
             $example2 = '-8192';
             $exampleResult2 = $encodeNumber->EncodeInteger();
 
-            $encodeNumber->set('integerValue', 8191);
+            $encodeNumber->Set('integerValue', 8191);
             $example3 = '8191';
             $exampleResult3 = $encodeNumber->EncodeInteger();
 
-            $encodeNumber->set('integerValue', 2048);
+            $encodeNumber->Set('integerValue', 2048);
             $example4 = '2048';
             $exampleResult4 = $encodeNumber->EncodeInteger();
 
-            $encodeNumber->set('integerValue', -4096);
+            $encodeNumber->Set('integerValue', -4096);
             $example5 = '-4096';
             $exampleResult5 = $encodeNumber->EncodeInteger();
             ?>
@@ -134,27 +134,27 @@ require_once('controllers.php');
             <?php
             $decodeNumber = new AdecodingFunctions();
 
-            $decodeNumber->set('hexValue', '4000');
+            $decodeNumber->Set('hexValue', '4000');
             $example1 = '4000';
             $exampleResult1 = $decodeNumber->DecodeHex();
 
-            $decodeNumber->set('hexValue', '0000');
+            $decodeNumber->Set('hexValue', '0000');
             $example2 = '0000';
             $exampleResult2 = $decodeNumber->DecodeHex();
 
-            $decodeNumber->set('hexValue', '7F7F');
+            $decodeNumber->Set('hexValue', '7F7F');
             $example3 = '7F7F';
             $exampleResult3 = $decodeNumber->DecodeHex();
 
-            $decodeNumber->set('hexValue', '5000');
+            $decodeNumber->Set('hexValue', '5000');
             $example4 = '5000';
             $exampleResult4 = $decodeNumber->DecodeHex();
 
-            $decodeNumber->set('hexValue', '0A05');
+            $decodeNumber->Set('hexValue', '0A05');
             $example5 = '0A05';
             $exampleResult5 = $decodeNumber->DecodeHex();
 
-            $decodeNumber->set('hexValue', '5500');
+            $decodeNumber->Set('hexValue', '5500');
             $example6 = '5500';
             $exampleResult6 = $decodeNumber->DecodeHex();
             ?>

@@ -9,18 +9,28 @@ class AdecodingFunctions
     public $hexValue;
     public static $extendedRange = 8192;
 
-
-    public function set($attribute, $content){
+    /**
+    * [nr02] Member functions are named using CamelCase, with a leading upper
+    *  case letter.
+    * @param string stringValue name of the value to set.
+    * @param string dynamicValue of the value to set.
+    **/
+    public function Set($attribute, $content){
 			   $this->$attribute = $content;
 		}
 
-    public function get($attribute) {
+    /**
+    * [nr03] Member functions are named using CamelCase, with a leading upper
+    *  case letter.
+    * @param string stringValue of the value to Get.
+    **/
+    public function Get($attribute) {
         return $this->$attribute;
     }
 
 
    /**
-   * [nr02] Member functions are named using CamelCase, with a leading upper
+   * [nr04] Member functions are named using CamelCase, with a leading upper
    *  case letter.
    * @param integer integerValue Number of the value to Decode.
    **/
