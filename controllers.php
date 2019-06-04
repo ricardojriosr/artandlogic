@@ -1,5 +1,8 @@
 <?php
-// [nr11], [nr18] class names prefixed with "A"
+/*
+* [nr11], [nr18] class names prefixed with "A"
+* This class is Used to Decode and Encode The Values
+*/
 class AdecodingFunctions
 {
     // [nr01] - StyleGuide/NamingRules
@@ -32,7 +35,7 @@ class AdecodingFunctions
    /**
    * [nr04] Member functions are named using CamelCase, with a leading upper
    *  case letter.
-   * @param integer integerValue Number of the value to Decode.
+   * @param integer integerValue Number of the value to Encode.
    **/
    public function EncodeInteger()
    {
